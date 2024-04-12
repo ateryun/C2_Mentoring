@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <math.h>
-#include <stdlib.h> // atoi 함수를 사용하기 위해 추가
-
 #define MAXLINE 1000
 
 int getLine(char s[], int lim) {
@@ -34,7 +32,18 @@ double atof(const char s[]) {
     }
     return sign * val / power;
 }
-
+int atoi(char s[])
+{
+	int i, n, sign;
+	for (i = 0; isspace(s[i]); i++)
+		;
+	sign = (s[i] == '-') ? -1 : 1;
+	if(s[i] == '+' || s[i] == '-')
+		i++;
+	for (n=0; isdigit(s[i]); i++)
+		n = 10 * n + (s[i] - '0');
+	return sign * n;
+}
 double calculate(char s[]) {
     double result = 0.0;
     double operand = 0.0;
