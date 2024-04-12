@@ -60,7 +60,9 @@ double calculate(char s[]) {
                     result *= operand;
                     break;
 		case '%':
-		    result = fmod(result, operand);
+		    int result = 0;
+		    int operand = 0;
+		    result %= operand;
 		    break;
                 case '/':
                     if (operand != 0.0) {
