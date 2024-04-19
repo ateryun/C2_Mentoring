@@ -1,13 +1,36 @@
 #include <stdio.h>
 
 #define MAX_SIZE 10
+void quick_sort(double arr[], int low,  int high) {
+	if (low < high) {
+		double pivot = arr[high]; // 배열의 마지막 요소 선택
+		int i = low -1; // 요소들 중 마지막 인덱스
 
-void quick_sort(double arr[], int left, int right);
-int partition(double arr[], int left, int right);
-void swap(double *a, double *b);
-void print_array(double arr[], int size);
+		for (int j = low; j<=high-1; j++) {
+			if(arr[j] < pivot) {
+				i++;
+				double temp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = temp;
+			}
+		}
 
-int main() {
+		double temp = arr[i+1];
+		arr[i+1] = arr[high];
+		arr[high] = temp;
+
+
+		quick_sort(arr, low, i);
+                quick_sort(arr, i + 2, high);
+	}
+}
+
+void print_array(double arr[], int size) {
+	for(int i = 0; i < size; i++)
+		printf("%.1f ", arr[i]);
+	printf("\n");
+}
+int main(void) {
 	double array[MAX_SIZE] = {1.1, 9.9, 2.2, 8.8, 3.3, 7.7, 4.4, 6.6, 5.5, 0.0};
 	int size = MAX_SIZE;
 
@@ -19,39 +42,4 @@ int main() {
 	print_array(array, size);
 
 	return 0;
-}
-
-void quick_sort(double arr[], int left, int right) {
-	if (left < right) {
-		int pivot_index = partition(arr, left, right);
-		quick_sort(arr, left, pivot_index -1);
-		quick_sort(arr, pivot_index +1, right);
-	}
-}
-
-int partition(double arr[], int left, int right) {
-	double pivot = arr[right];
-	int i = left -1;
-
-	for (int j = left; j < right; j++) {
-		if(arr[j] < pivot) {
-			i++;
-			swap(&arr[i], &arr[j]);
-		}
-	}
-	swap(&arr[i+1], &arr[right]);
-	return i+1;
-}
-
-void swap(double *a, double *b) {
-	double temp = *a;
-	*a = *b;
-	*b = temp;
-
-}
-
-void print_array(double arr[], int size) {
-	for (int i = 0; i <size; i++) {
-		printf("%.1f ", arr[i]);
-	}
 }
