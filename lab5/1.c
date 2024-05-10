@@ -9,10 +9,8 @@ int main(void) {
 	{
 		printf("a[%d]의 원소 : %d\n", i, a[i]);
 	}
-	i = 0;
-	while(*p < 5) {
-		printf("포인터 P의 %d번째 원소 : %d\n", *p, *p);
-		p++;
+	while(p-a < 5) {
+		printf("포인터 P의 %d번째 원소 : %d\n", p - a, *(p++));
 	}
 	return 0;
 }
