@@ -1,7 +1,11 @@
 #include <stdio.h>
 
 #define MAX_SIZE 10
-void quick_sort(double arr[], int low,  int high) {
+void quick_sort(double arr[], int low,  int high,int (*comp)(void *, void *)) {
+	int i, last;
+	void swap(void *v[], int, int);
+
+
 	if (low < high) {
 		double pivot = arr[high]; // 배열의 마지막 요소 선택
 		int i = low -1; // 요소들 중 마지막 인덱스
@@ -36,7 +40,7 @@ int main(void) {
 
 	print_array(array, size);
 
-	quick_sort(array, 0, size -1);
+	quick_sort(array, 0, size );
 
 	printf("\n");
 	print_array(array, size);

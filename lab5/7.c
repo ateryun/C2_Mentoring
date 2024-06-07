@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 {
     int nlines;
     int numeric = 0;
-
+// ./7=[0]  -a[1] 3 496969 9302 argc[4]
     if (argc > 1 && strcmp(argv[1], "-n") == 0)
         numeric = 1;
     if ((nlines = readlines(lineptr, MAXLINES)) >= 0)
@@ -60,7 +60,7 @@ void writelines(char *lineptr[], int nlines)
 {
     int i;
     for (i = 0; i < nlines; i++)
-        printf("%s\n", lineptr[i]);
+        printf("%s ", lineptr[i]);
 }
 
 void my_qsort(void *v[], int left, int right, int (*comp)(void *, void *))

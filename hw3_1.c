@@ -36,7 +36,7 @@ int main(int argc, char *argv[]) {
 	int end = atoi(argv[argc -1]); // start = 19, end = 5
 	int reverse =0;
 
-	if(argc == 4 && argv[1][0] == '-' && argv[1][1] == 'r') {
+	if(argc == 4 && argv[2] == "-r") {
 		reverse = 1; // -r이 들어온다면 역순으로 출력.
 	}
 	printNumbers(start,end, reverse);  

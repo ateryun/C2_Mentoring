@@ -19,7 +19,7 @@ int main(void)
 		printf("%s %d\n", *(s+i), (int)strlen(s[i]));
 	putchar('\n');
 
-	printf("with strlen()\n");
+	printf("with mystrlen()\n");
 	for (int i = 0; i<n; i++)
 		printf("%s %d\n",*(s+i), mystrlen(s[i]));
 	return 0;
