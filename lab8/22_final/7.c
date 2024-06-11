@@ -1,3 +1,4 @@
+//최소공배수, 최대공약수
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -12,7 +13,7 @@ int gcd(int a, int b) {
 
 int lcm(int a, int b, int gcd_value) {
 	return (a/gcd_value) *b;
-}
+} // 최소공배수
 
 int main(int argc, char *argv[]) {
 	if (argc != 3) {
